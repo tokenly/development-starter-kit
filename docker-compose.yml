@@ -1,0 +1,43 @@
+version: '2'
+services:
+
+  # ------------------------------------------------------------------------
+  # Shared base layer services
+  # ------------------------------------------------------------------------
+  
+  # -------------------------------------
+  # Mariadb
+
+  mariadb:
+    image: mariadb:10
+    volumes:
+     - ./data/mariadb:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: localdevonly
+
+
+  # ------------------------------------------------------------------------
+  # Web applications
+  # ------------------------------------------------------------------------
+
+  # -------------------------------------
+  # Tokenpass
+
+  tokenpass:
+    image: tokenly/devtokenpass
+    links:
+      - mariadb:db
+    depends_on:
+      - mariadb
+    ports:
+     - "8000:80"
+    environment:
+      DB_HOST: db
+      DB_USERNAME: tokenly
+      DB_PASSWORD: tokenlydevpassword
+      DB_DATABASE: tokenly_tokenpass_dev
+
+    volumes:
+     - ./projects/tokenpass:/app/current
+     - ./etc/tokenpass/etc/php5/fpm:/etc/php5/fpm
+
