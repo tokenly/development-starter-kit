@@ -36,6 +36,8 @@ services:
       DB_USERNAME: tokenly
       DB_PASSWORD: tokenlydevpassword
       DB_DATABASE: tokenly_tokenpass_dev
+      # GITHUB_BRANCH: development
+      GITHUB_BRANCH: sassified
 
     volumes:
      - ./projects/tokenpass:/app/current
