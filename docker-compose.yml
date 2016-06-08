@@ -36,8 +36,8 @@ services:
       DB_USERNAME: tokenly
       DB_PASSWORD: tokenlydevpassword
       DB_DATABASE: tokenly_tokenpass_dev
-      # GITHUB_BRANCH: development
-      GITHUB_BRANCH: sassified
+      GITHUB_BRANCH: development
+      # GITHUB_BRANCH: sassified
       PLATFORM_ADMIN_DEVELOPMENT_MODE_ENABLED: "true"
 
     volumes:
