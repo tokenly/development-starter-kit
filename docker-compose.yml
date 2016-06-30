@@ -14,7 +14,8 @@ services:
      - ./data/mariadb:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: localdevonly
-
+    ports:
+      - "33006:3306"
 
   # ------------------------------------------------------------------------
   # Web applications
